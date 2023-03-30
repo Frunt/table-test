@@ -5,13 +5,29 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import { createGlobalStyle } from 'styled-components';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
+const Global = createGlobalStyle`
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: consolas;
+  font-size: 20px;
+}
+
+body {
+  background: linear-gradient(to right, #25c481, #25b7c4);
+}
+`
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
+      <Global />
       <App />
     </Provider>
   </React.StrictMode>
